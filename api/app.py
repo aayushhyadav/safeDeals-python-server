@@ -8,10 +8,6 @@ from utility.helper import *
 
 pyServer = Flask(__name__)
 
-@pyServer.route("/")
-def home():
-  return 'Welcome!'
-
 @pyServer.route('/getOptimumK', methods=['POST'])
 def getOptimumK():
   reqPayload = request.json

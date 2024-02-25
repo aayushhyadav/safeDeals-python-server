@@ -33,3 +33,6 @@ def getOptimumK():
 
   k = compute_k(elbow, len(latitude), scaled_data, data_frame)
   return {"numClusters": k}
+
+if __name__ == '__main__':
+  pyServer.run()

@@ -5,13 +5,13 @@ from sklearn import preprocessing
 from kneed import KneeLocator
 from utility.helper import *
 
-pyServer = Flask(__name__)
+app = Flask(__name__)
 
-@pyServer.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
   return render_template('index.html')
 
-@pyServer.route('/getOptimumK', methods=['POST'])
+@app.route('/getOptimumK', methods=['POST'])
 def getOptimumK():
   reqPayload = request.json
 
@@ -38,4 +38,4 @@ def getOptimumK():
   return {"numClusters": k}
 
 if __name__ == '__main__':
-  pyServer.run()
+  app.run()

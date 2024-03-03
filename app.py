@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import request
+from flask import Flask, render_template, request
 
 import pandas as pd
 from sklearn import preprocessing
@@ -7,6 +6,10 @@ from kneed import KneeLocator
 from utility.helper import *
 
 pyServer = Flask(__name__)
+
+@pyServer.route('/', methods=['GET'])
+def index():
+  return render_template('index.html')
 
 @pyServer.route('/getOptimumK', methods=['POST'])
 def getOptimumK():
